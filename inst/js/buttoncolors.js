@@ -1,0 +1,1 @@
+document.getElementById("q").className+=" btn-primary"

@@ -1,0 +1,14 @@
+Package: shinyTestR
+Type: Package
+Title: Useful Extensions for User Testing with Shiny
+Version: 0.1
+Date: 2015-03-27
+Author: Susan VanderPlas and Eric Hare
+Maintainer: Susan VanderPlas <srvanderplas+shinyTestR@gmail.com>
+Description: Functions which may be useful when utilizing Shiny for collecting data during psychological or usability testing experiments.
+License: GPL-3
+LazyData: TRUE
+Imports: stringr,
+ shiny,
+ magrittr
+Suggests: testthat
