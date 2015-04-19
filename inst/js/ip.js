@@ -24,8 +24,3 @@ function getip(){
   }
 }
 
-Shiny.addCustomMessageHandler("javascript",
-        function(message) {
-          eval(message.value);
-        }
-      );
