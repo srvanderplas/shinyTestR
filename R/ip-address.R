@@ -6,7 +6,8 @@
 inputIP <- function(inputId, value=' '){
   tagList(
     tags$input(id = inputId, class = "ip", value=as.character(value), type="text", style="display:none;"), 
-    tags$head(includeScript(system.file("js/ip.js", package="shinyTestR")))
+    singleton(tags$head(includeScript(system.file("js/ip.js", package="shinyTestR")))),
+    singleton(tags$head(includeScript(system.file("js/javascriptMessages.js", package="shinyTestR"))))
   )
 }
 
