@@ -3,11 +3,20 @@
 #' Include in ui.R with the following code: inputIp("ipid")
 #' @export
 #'
-inputIP <- function(inputId, value=''){
+inputIP <- function(inputId, value=' '){
   tagList(
-    singleton(tags$head(tags$script(src = "inst/md5.js", type='text/javascript'))),
-    singleton(tags$head(tags$script(src = "inst/shinyBindings.js", type='text/javascript'))),
-    tags$body(onload="setvalues()"),
-    tags$input(id = inputId, class = "ipaddr", value=as.character(value), type="text", style="display:none;")
+    tags$input(id = inputId, class = "ip", value=as.character(value), type="text", style="display:none;"), 
+    tags$head(includeScript(system.file("js/ip.js", package="shinyTestR")))
   )
+}
+
+#' Function to send a message from shiny to get a user's IP address
+#' Include in server.R with the following code: outputIP(session)
+#' Note: you must call the shinyServer function with session as an argument.
+#' @export
+#'
+outputIP <- function(session=session){
+  observe({
+    session$sendCustomMessage(type='javascript', message=list(value="getip();"))
+  }) 
 }
